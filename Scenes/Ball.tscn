@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Ball.gd" type="Script" id=1]
+[ext_resource path="res://hit.wav" type="AudioStream" id=2]
+[ext_resource path="res://PaddHit.wav" type="AudioStream" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -10,7 +12,6 @@ bounce = 1.0
 extents = Vector2( 8, 8 )
 
 [node name="Ball" type="RigidBody2D"]
-editor/display_folded = true
 position = Vector2( 544, 488 )
 mode = 2
 physics_material_override = SubResource( 1 )
@@ -28,6 +29,17 @@ margin_left = -8.0
 margin_top = -8.0
 margin_right = 8.0
 margin_bottom = 8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+volume_db = -12.234
+
+[node name="PaddHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -12.234
